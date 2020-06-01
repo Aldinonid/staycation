@@ -3,8 +3,9 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import "assets/scss/style.scss";
 
 import LandingPage from "pages/LandingPage";
-import Example from "pages/Example";
 import DetailsPage from "pages/DetailsPage";
+import CheckoutPage from "pages/CheckoutPage";
+import Example from "pages/Example";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Router>
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/properties/:id" component={DetailsPage} />
+        <Route path="/checkout" component={CheckoutPage} />
         <Route path="/example" component={Example} />
       </Router>
     </div>
