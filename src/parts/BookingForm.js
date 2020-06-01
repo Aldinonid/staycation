@@ -63,6 +63,19 @@ export default class BookingFrom extends Component {
     }
   }
 
+  // startBooking = () => {
+  //   const { data } = this.state;
+  //   this.props.startBooking({
+  //     _id: this.props.itemDetails._id,
+  //     duration: data.duration,
+  //     date: {
+  //       startDate: data.date.startDate,
+  //       endDate: data.date.endDate,
+  //     },
+  //   });
+  //   this.props.history.push("/checkout");
+  // };
+
   render() {
     const { data } = this.state;
     const { itemDetails, startBooking } = this.props;
@@ -109,7 +122,9 @@ export default class BookingFrom extends Component {
           hasShadow
           isPrimary
           isBlock
-          onClick={startBooking}
+          type="link"
+          href="/checkout"
+          // onClick={startBooking}
         >
           Continue to Book
         </Button>
