@@ -5,7 +5,7 @@ import propTypes from "prop-types";
 import Button from "elements/Button";
 import { InputNumber, InputDate } from "elements/Form";
 
-export default class BookingFrom extends Component {
+export default class BookingForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -63,19 +63,6 @@ export default class BookingFrom extends Component {
     }
   }
 
-  // startBooking = () => {
-  //   const { data } = this.state;
-  //   this.props.startBooking({
-  //     _id: this.props.itemDetails._id,
-  //     duration: data.duration,
-  //     date: {
-  //       startDate: data.date.startDate,
-  //       endDate: data.date.endDate,
-  //     },
-  //   });
-  //   this.props.history.push("/checkout");
-  // };
-
   render() {
     const { data } = this.state;
     const { itemDetails, startBooking } = this.props;
@@ -122,9 +109,7 @@ export default class BookingFrom extends Component {
           hasShadow
           isPrimary
           isBlock
-          type="link"
-          href="/checkout"
-          // onClick={startBooking}
+          onClick={startBooking}
         >
           Continue to Book
         </Button>
@@ -133,7 +118,7 @@ export default class BookingFrom extends Component {
   }
 }
 
-BookingFrom.propTypes = {
+BookingForm.propTypes = {
   itemDetails: propTypes.object,
   startBooking: propTypes.func,
 };
