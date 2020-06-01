@@ -1,8 +1,10 @@
 import React, { Component } from "react";
+
+import landingPage from "json/landingPage.json";
+
 import Header from "parts/Header";
 import Hero from "parts/Hero";
 import MostPicked from "parts/MostPicked";
-import landingPage from "json/landingPage.json";
 import Categories from "parts/Categories";
 import Testimonial from "parts/Testimonial";
 import Footer from "parts/Footer";
@@ -12,6 +14,12 @@ export default class LandingPage extends Component {
     super(props);
     this.refMostPicked = React.createRef();
   }
+
+  componentDidMount() {
+    window.title = "Staycation | Home";
+    window.scrollTo(0, 0);
+  }
+
   render() {
     return (
       <>

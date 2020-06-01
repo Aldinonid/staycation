@@ -5,7 +5,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap");
 @import "colorVariables";
 @import "functions";
 @import "variables";
@@ -92,7 +92,6 @@ header {
   }
 }
 
-
 section {
   margin-bottom: 70px;
 }
@@ -110,13 +109,16 @@ section {
 }
 
 .card {
-  height: 100%;
+  &.bordered {
+    border: 1px solid $gray-200;
+  }
+  border-radius: 15px;
 
   .tag {
     z-index: 3;
-    font-size: .875rem;
+    font-size: 0.875rem;
     background-color: $pink;
-    padding: .25rem 1.25rem;
+    padding: 0.25rem 1.25rem;
     position: absolute;
     top: 0;
     right: 0;
@@ -132,7 +134,7 @@ section {
   .img-wrapper {
     height: 100%;
     margin-bottom: 0;
-    border-radius: .9275rem;
+    border-radius: 0.9275rem;
     overflow: hidden;
   }
 
@@ -145,7 +147,7 @@ section {
     }
 
     span {
-      font-size: .875rem;
+      font-size: 0.875rem;
     }
   }
 
@@ -153,7 +155,6 @@ section {
     overflow: hidden;
     cursor: pointer;
     height: 100%;
-    border-radius: 15px;
 
     &::after {
       position: absolute;
@@ -163,9 +164,9 @@ section {
       left: 0;
       bottom: 0;
       transform: scale(1.1);
-      transition: .5s transform ease-in-out;
+      transition: 0.5s transform ease-in-out;
       z-index: 2;
-      @include gradient-y(rgba($black, 0), rgba($black, .51), 0%, 100%)
+      @include gradient-y(rgba($black, 0), rgba($black, 0.51), 0%, 100%);
     }
 
     .img-wrapper {
@@ -177,7 +178,7 @@ section {
       left: 0;
       bottom: 0;
       transform: scale(1.1);
-      transition: .25s transform ease-in-out;
+      transition: 0.25s transform ease-in-out;
     }
 
     .meta-wrapper {
@@ -189,7 +190,7 @@ section {
       bottom: 0;
       width: 100%;
       transform: translateY(0);
-      transition: .3s transform ease-in-out;
+      transition: 0.3s transform ease-in-out;
       display: flex;
       justify-content: flex-end;
       flex-direction: column;
@@ -209,7 +210,6 @@ section {
       }
     }
   }
-
 }
 
 .testimonial-hero,
@@ -249,5 +249,12 @@ footer {
     margin: 50px 0;
     font-weight: 300;
     color: $gray-500;
+  }
+}
+
+main {
+  p {
+    color: $gray-500;
+    font-weight: 300;
   }
 }
