@@ -12,6 +12,7 @@ export default function Stepper(props) {
   const totalStep = stepsKeys.length;
   const indexStep = stepsKeys.indexOf(CurrentStep);
 
+  //TODO Error when button (nextStep) shown up //
   function prevStep() {
     if (+indexStep > 0) setCurrentStep(stepsKeys[indexStep - 1]);
   }

@@ -11,6 +11,7 @@ import formatNumber from "utils/formatNumber";
 export default function Hero(props) {
   function showMostPicked() {
     window.scrollTo({
+      //TODO Error when add offsetTop //
       top: props.refMostPicked.current,
       behavior: "smooth",
     });
