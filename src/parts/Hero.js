@@ -12,7 +12,7 @@ export default function Hero(props) {
   function showMostPicked() {
     window.scrollTo({
       //TODO Error when add offsetTop //
-      top: props.refMostPicked.current,
+      top: props.refMostPicked.current.offsetTop - 30,
       behavior: "smooth",
     });
   }
