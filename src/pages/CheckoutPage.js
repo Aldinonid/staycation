@@ -143,7 +143,7 @@ export default class CheckoutPage extends Component {
                           isBlock
                           isPrimary
                           hasShadow
-                          onClick={() => this._Submit(nextStep)}
+                          onClick={nextStep}
                         >
                           Continue to Book
                         </Button>
