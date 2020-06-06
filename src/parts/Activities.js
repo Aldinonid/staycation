@@ -4,18 +4,17 @@ import Fade from "react-reveal/Fade";
 import Button from "elements/Button";
 
 export default function Categories({ data }) {
-  return data.map((category, index1) => {
-    return (
-      <Fade bottom>
-        <section className="container" key={`category-${index1}`}>
-          <h4 className="mb-3 font-weight-medium">{category.name}</h4>
-          <div className="container-grid">
-            {category.itemId.map((item, index2) => {
+  console.log(data);
+  if (data.length === 0) return null;
+  return (
+    <Fade bottom>
+      <section className="container">
+        <h4 className="mb-3 font-weight-medium">Activities</h4>
+        <div className="container-grid">
+          {data.length > 0 &&
+            data.map((item, index2) => {
               return (
-                <div
-                  className="item column-3 row-1"
-                  key={`category${index1}-item-${index2}`}
-                >
+                <div className="item column-3 row-1" key={`activity-${index2}`}>
                   <Fade bottom delay={300 * index2}>
                     <div className="card">
                       {item.isPopular && (
@@ -26,8 +25,8 @@ export default function Categories({ data }) {
                       )}
                       <figure className="img-wrapper" style={{ height: 180 }}>
                         <img
-                          src={`${process.env.REACT_APP_HOST}/${item.imageId[0].imageUrl}`}
-                          alt={item.title}
+                          src={`${process.env.REACT_APP_HOST}/${item.imageUrl}`}
+                          alt={item.name}
                           className="img-cover"
                         />
                       </figure>
@@ -37,20 +36,17 @@ export default function Categories({ data }) {
                           href={`/properties/${item._id}`}
                           className="stretched-link d-block text-gray-800"
                         >
-                          <h4>{item.title}</h4>
+                          <h4>{item.name}</h4>
                         </Button>
-                        <span className="text-gray-500">
-                          {item.city}, {item.country}
-                        </span>
+                        <span className="text-gray-500">{item.type}</span>
                       </div>
                     </div>
                   </Fade>
                 </div>
               );
             })}
-          </div>
-        </section>
-      </Fade>
-    );
-  });
+        </div>
+      </section>
+    </Fade>
+  );
 }
