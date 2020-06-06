@@ -43,10 +43,9 @@ class CheckoutPage extends Component {
     window.scroll(0, 0);
   }
 
-  // kowakaranaide
   render() {
     const { data } = this.state;
-    const { checkout } = this.props;
+    const { checkout, page } = this.props;
 
     if (!checkout)
       return (
@@ -60,9 +59,11 @@ class CheckoutPage extends Component {
               <div>
                 <Button
                   className="btn mt-5"
-                  type="link"
                   isLight
-                  href={`/properties/${ItemDetails._id}`}
+                  type="button"
+                  onClick={() => {
+                    this.props.history.goBack();
+                  }}
                 >
                   Go book
                 </Button>
@@ -80,7 +81,7 @@ class CheckoutPage extends Component {
           <BookingInformation
             data={data}
             checkout={checkout}
-            ItemDetails={ItemDetails}
+            ItemDetails={page[checkout._id]}
             onChange={this.onChange}
           />
         ),
@@ -92,8 +93,8 @@ class CheckoutPage extends Component {
         content: (
           <Payment
             data={data}
-            ItemDetails={ItemDetails}
             checkout={checkout}
+            ItemDetails={page[checkout._id]}
             onChange={this.onChange}
           />
         ),
@@ -113,7 +114,6 @@ class CheckoutPage extends Component {
         <Stepper steps={steps}>
           {(prevStep, nextStep, CurrentStep, steps) => (
             <>
-              {console.log(nextStep)}
               <Numbering
                 data={steps}
                 current={CurrentStep}
@@ -145,10 +145,12 @@ class CheckoutPage extends Component {
                     )}
                   <Button
                     className="btn"
-                    type="link"
                     isBlock
                     isLight
-                    href={`/properties/${ItemDetails._id}`}
+                    type="button"
+                    onClick={() => {
+                      this.props.history.goBack();
+                    }}
                   >
                     Cancel
                   </Button>
@@ -209,6 +211,7 @@ class CheckoutPage extends Component {
 
 const mapStateToProps = (state) => ({
   checkout: state.checkout,
+  page: state.page,
 });
 
 export default connect(mapStateToProps)(CheckoutPage);
