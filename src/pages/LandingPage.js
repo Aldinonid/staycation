@@ -21,16 +21,11 @@ class LandingPage extends Component {
     window.scrollTo(0, 0);
 
     if (!this.props.page.landingPage)
-      this.props.fetchPage(
-        `http://localhost:8080/api/v1/member/landing-page`,
-        "landingPage"
-      );
+      this.props.fetchPage(`/landing-page`, "landingPage");
   }
 
   render() {
     const { page } = this.props;
-
-    console.log(page.landingPage);
 
     if (!page.hasOwnProperty("landingPage")) return null;
 

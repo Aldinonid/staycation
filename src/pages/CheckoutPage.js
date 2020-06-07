@@ -60,20 +60,14 @@ class CheckoutPage extends Component {
     payload.append("accountHolder", data.bankHolder);
     payload.append("bankFrom", data.bankName);
 
-    this.props
-      .submitBooking(payload)
-      .then(() => {
-        nextStep();
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    this.props.submitBooking(payload).then(() => {
+      nextStep();
+    });
   };
 
   render() {
     const { data } = this.state;
     const { checkout, page } = this.props;
-    console.log(page, data);
 
     if (!checkout)
       return (
