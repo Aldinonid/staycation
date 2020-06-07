@@ -15,7 +15,7 @@ import BookingInformation from "parts/Checkout/BookingInformation";
 import Payment from "parts/Checkout/Payment";
 import Completed from "parts/Checkout/Completed";
 
-import ItemDetails from "json/itemDetails.json";
+import { submitBooking } from "store/actions/checkout";
 
 class CheckoutPage extends Component {
   state = {
@@ -43,9 +43,37 @@ class CheckoutPage extends Component {
     window.scroll(0, 0);
   }
 
+  _Submit = (nextStep) => {
+    const { checkout } = this.props;
+    const { data } = this.state;
+    const payload = new FormData();
+
+    payload.append("image", data.proofPayment[0]);
+    payload.append("itemId", checkout._id);
+    payload.append("duration", checkout.duration);
+    payload.append("bookingStartDate", checkout.date.startDate);
+    payload.append("bookingEndDate", checkout.date.endDate);
+    payload.append("firstName", data.firstName);
+    payload.append("lastName", data.lastName);
+    payload.append("email", data.email);
+    payload.append("phoneNumber", data.phone);
+    payload.append("accountHolder", data.bankHolder);
+    payload.append("bankFrom", data.bankName);
+
+    this.props
+      .submitBooking(payload)
+      .then(() => {
+        nextStep();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   render() {
     const { data } = this.state;
     const { checkout, page } = this.props;
+    console.log(page, data);
 
     if (!checkout)
       return (
@@ -169,7 +197,9 @@ class CheckoutPage extends Component {
                           isBlock
                           isPrimary
                           hasShadow
-                          onClick={nextStep}
+                          onClick={() => {
+                            this._Submit(nextStep);
+                          }}
                         >
                           Continue to Book
                         </Button>
@@ -214,4 +244,4 @@ const mapStateToProps = (state) => ({
   page: state.page,
 });
 
-export default connect(mapStateToProps)(CheckoutPage);
+export default connect(mapStateToProps, { submitBooking })(CheckoutPage);
