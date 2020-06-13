@@ -25,7 +25,7 @@
   "homepage": "https://aldinonid.github.io/staycation",
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "live -d build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
