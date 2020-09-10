@@ -22,7 +22,6 @@
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0"
   },
-  "homepage": "https://aldinonid.github.io/staycation",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "live -d build",
