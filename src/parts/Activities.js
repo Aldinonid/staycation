@@ -16,7 +16,7 @@ export default function Categories({ data }) {
                 <div className="item column-3 row-1" key={`activity-${index2}`}>
                   <Fade bottom delay={300 * index2}>
                     <div className="card">
-                      {item.isPopular && (
+                      {item.is_popular && (
                         <div className="tag">
                           Popular{" "}
                           <span className="font-weight-light">Choice</span>
@@ -24,7 +24,7 @@ export default function Categories({ data }) {
                       )}
                       <figure className="img-wrapper" style={{ height: 180 }}>
                         <img
-                          src={`${process.env.REACT_APP_HOST}/${item.imageUrl}`}
+                          src={`${process.env.REACT_APP_HOST}/${item.image_url}`}
                           alt={item.name}
                           className="img-cover"
                         />

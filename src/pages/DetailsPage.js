@@ -22,7 +22,7 @@ class DetailsPage extends Component {
 
     if (!this.props.page[this.props.match.params.id])
       this.props.fetchPage(
-        `/detail-page/${this.props.match.params.id}`,
+        `/detail/${this.props.match.params.id}`,
         this.props.match.params.id
       );
   }
@@ -41,7 +41,7 @@ class DetailsPage extends Component {
       <>
         <Header {...this.props} />
         <PageDetailTitle breadcrumb={breadcrumb} data={page[match.params.id]} />
-        <FeaturedImage data={page[match.params.id].imageId} />
+        <FeaturedImage data={page[match.params.id].images} />
 
         <Fade bottom>
           <section className="container">
@@ -59,7 +59,7 @@ class DetailsPage extends Component {
           </section>
         </Fade>
 
-        <Activities data={page[match.params.id].activityId} />
+        <Activities data={page[match.params.id].activities} />
         <Testimonial data={page[match.params.id].testimonial} />
         <Footer />
       </>

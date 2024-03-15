@@ -10,7 +10,7 @@ export default function Categories({ data }) {
         <section className="container" key={`category-${index1}`}>
           <h4 className="mb-3 font-weight-medium">{category.name}</h4>
           <div className="container-grid">
-            {category.itemId.map((item, index2) => {
+            {category.items.map((item, index2) => {
               return (
                 <div
                   className="item column-3 row-1"
@@ -18,7 +18,7 @@ export default function Categories({ data }) {
                 >
                   <Fade bottom delay={300 * index2}>
                     <div className="card">
-                      {item.isPopular && (
+                      {item.is_popular && (
                         <div className="tag">
                           Popular{" "}
                           <span className="font-weight-light">Choice</span>
@@ -26,7 +26,7 @@ export default function Categories({ data }) {
                       )}
                       <figure className="img-wrapper" style={{ height: 180 }}>
                         <img
-                          src={`${process.env.REACT_APP_HOST}/${item.imageId[0].imageUrl}`}
+                          src={`${process.env.REACT_APP_HOST}/${item.images[0].image_url}`}
                           alt={item.title}
                           className="img-cover"
                         />
@@ -34,7 +34,7 @@ export default function Categories({ data }) {
                       <div className="meta-wrapper">
                         <Button
                           type="link"
-                          href={`/properties/${item._id}`}
+                          href={`/properties/${item.id}`}
                           className="stretched-link d-block text-gray-800"
                         >
                           <h4>{item.title}</h4>

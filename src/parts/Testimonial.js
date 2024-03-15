@@ -17,7 +17,7 @@ export default function Testimonial({ data }) {
               style={{ margin: `30px 0 0 30px` }}
             >
               <img
-                src={`${process.env.REACT_APP_HOST}/${data.imageUrl}`}
+                src={`${process.env.REACT_APP_HOST}/${data.image_url}`}
                 alt="Testimonial"
                 className="position-absolute"
                 style={{ zIndex: 1 }}
@@ -40,7 +40,7 @@ export default function Testimonial({ data }) {
               {data.content}
             </h5>
             <span className="text-gray-500">
-              {data.familyName}, {data.familyOccupation}
+              {data.family_name}, {data.family_occupation}
             </span>
             <div>
               <Button

@@ -65,8 +65,8 @@ export default function Footer() {
                 </Button>
               </li>
               <li className="list-group-item">
-                <Button isExternal type="link" href="tel:+6285765844454">
-                  0857 - 6584 - 4454
+                <Button isExternal type="link" href="tel:+6281234567890">
+                  0812 - 3456 - 7890
                 </Button>
               </li>
               <li className="list-group-item">
