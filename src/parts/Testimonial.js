@@ -45,7 +45,7 @@ export default function Testimonial({ data }) {
             <div>
               <Button
                 type="link"
-                href={`/testimonial/${data._id}`}
+                href="/"
                 className="btn px-5"
                 style={{ marginTop: 40 }}
                 hasShadow
