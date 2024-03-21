@@ -103,7 +103,7 @@ class CheckoutPage extends Component {
           <BookingInformation
             data={data}
             checkout={checkout}
-            ItemDetails={page[checkout._id]}
+            ItemDetails={page[checkout.id].item}
             onChange={this.onChange}
           />
         ),
@@ -116,7 +116,8 @@ class CheckoutPage extends Component {
           <Payment
             data={data}
             checkout={checkout}
-            ItemDetails={page[checkout._id]}
+            ItemDetails={page[checkout.id].item}
+            bankDetails={page[checkout.id].banks}
             onChange={this.onChange}
           />
         ),

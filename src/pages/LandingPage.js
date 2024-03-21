@@ -9,6 +9,7 @@ import MostPicked from "parts/MostPicked";
 import Categories from "parts/Categories";
 import Testimonial from "parts/Testimonial";
 import Footer from "parts/Footer";
+import Loading from "elements/Loading";
 
 class LandingPage extends Component {
   constructor(props) {
@@ -27,18 +28,18 @@ class LandingPage extends Component {
   render() {
     const { page } = this.props;
 
-    if (!page.hasOwnProperty("landingPage")) return null;
+    if (!page.hasOwnProperty("landingPage")) return <Loading />
 
     return (
       <>
-        <Header {...this.props}></Header>
-        <Hero refMostPicked={this.refMostPicked} data={page.landingPage.data.hero} />
+        <Header {...this.props} />
+        <Hero refMostPicked={this.refMostPicked} data={page.landingPage.hero} />
         <MostPicked
           refMostPicked={this.refMostPicked}
-          data={page.landingPage.data.most_picked}
+          data={page.landingPage.most_picked}
         />
-        <Categories data={page.landingPage.data.categories} />
-        <Testimonial data={page.landingPage.data.testimonial} />
+        <Categories data={page.landingPage.categories} />
+        <Testimonial data={page.landingPage.testimonial} />
         <Footer />
       </>
     );

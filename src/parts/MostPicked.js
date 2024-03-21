@@ -25,7 +25,7 @@ export default function MostPicked(props) {
                     </div>
                     <figure className="img-wrapper">
                       <img
-                        src={`${process.env.REACT_APP_HOST}/${item.images[0].image_url}`}
+                        src={item.images[0]?.image_url}
                         alt={item.name}
                         className="img-cover"
                       />

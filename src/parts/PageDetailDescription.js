@@ -11,7 +11,7 @@ export default function PageDetailDescription({ data }) {
           return (
             <div key={index} className="col-3" style={{ marginBottom: 20 }}>
               <img
-                src={`${process.env.REACT_APP_HOST}/${feature.image_url}`}
+                src={feature.image_url}
                 alt={feature.name}
                 className="d-block mb-2"
                 width="38"

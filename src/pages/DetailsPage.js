@@ -14,6 +14,7 @@ import BookingForm from "parts/BookingForm";
 import Activities from "parts/Activities";
 import Testimonial from "parts/Testimonial";
 import Footer from "parts/Footer";
+import Loading from "elements/Loading";
 
 class DetailsPage extends Component {
   componentDidMount() {
@@ -30,7 +31,7 @@ class DetailsPage extends Component {
   render() {
     const { page, match } = this.props;
 
-    if (!page[match.params.id]) return null;
+    if (!page[match.params.id]) return <Loading />
 
     const breadcrumb = [
       { pageTitle: "Home", pageHref: "" },
@@ -41,17 +42,17 @@ class DetailsPage extends Component {
       <>
         <Header {...this.props} />
         <PageDetailTitle breadcrumb={breadcrumb} data={page[match.params.id]} />
-        <FeaturedImage data={page[match.params.id].images} />
+        <FeaturedImage data={page[match.params.id].item.images} />
 
         <Fade bottom>
           <section className="container">
             <div className="row">
               <div className="col-7 pr-5">
-                <PageDetailDescription data={page[match.params.id]} />
+                <PageDetailDescription data={page[match.params.id].item} />
               </div>
               <div className="col-5">
                 <BookingForm
-                  itemDetails={page[match.params.id]}
+                  itemDetails={page[match.params.id].item}
                   startBooking={this.props.checkoutBooking}
                 />
               </div>
@@ -59,7 +60,7 @@ class DetailsPage extends Component {
           </section>
         </Fade>
 
-        <Activities data={page[match.params.id].activities} />
+        <Activities data={page[match.params.id].item.activities} itemId={page[match.params.id].item.id} />
         <Testimonial data={page[match.params.id].testimonial} />
         <Footer />
       </>

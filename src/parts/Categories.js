@@ -26,7 +26,7 @@ export default function Categories({ data }) {
                       )}
                       <figure className="img-wrapper" style={{ height: 180 }}>
                         <img
-                          src={`${process.env.REACT_APP_HOST}/${item.images[0].image_url}`}
+                          src={item.images[0]?.image_url}
                           alt={item.title}
                           className="img-cover"
                         />

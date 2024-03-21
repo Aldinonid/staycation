@@ -67,7 +67,7 @@ class BookingForm extends Component {
   startBooking = () => {
     const { data } = this.state;
     this.props.startBooking({
-      _id: this.props.itemDetails._id,
+      id: this.props.itemDetails.id,
       duration: data.duration,
       date: {
         startDate: data.date.startDate,

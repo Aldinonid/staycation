@@ -77,7 +77,7 @@ export default function Footer() {
         </div>
         <div className="row">
           <div className="col text-center copyrights">
-            Copyrights 2020 - All rights reserved - Staycation
+            Copyrights {new Date().getFullYear()} - All rights reserved - Staycation
           </div>
         </div>
       </div>

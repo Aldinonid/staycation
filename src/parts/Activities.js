@@ -3,7 +3,7 @@ import Fade from "react-reveal/Fade";
 
 import Button from "elements/Button";
 
-export default function Categories({ data }) {
+export default function Categories({ data, itemId }) {
   if (data.length === 0) return null;
   return (
     <Fade bottom>
@@ -24,7 +24,7 @@ export default function Categories({ data }) {
                       )}
                       <figure className="img-wrapper" style={{ height: 180 }}>
                         <img
-                          src={`${process.env.REACT_APP_HOST}/${item.image_url}`}
+                          src={item.image_url}
                           alt={item.name}
                           className="img-cover"
                         />
@@ -32,7 +32,7 @@ export default function Categories({ data }) {
                       <div className="meta-wrapper">
                         <Button
                           type="link"
-                          href={`/properties/${item._id}`}
+                          href={`/properties/${itemId}`}
                           className="stretched-link d-block text-gray-800"
                         >
                           <h4>{item.name}</h4>
